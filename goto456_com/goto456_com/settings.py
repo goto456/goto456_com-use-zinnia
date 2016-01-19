@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'django_comments',
     'mptt',
     'tagging',
+    'zinnia_bootstrap',
     'zinnia',
 )
 
@@ -61,8 +62,9 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
+            'templates',
             ],
-        'APP_DIRS': True,
+        #'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -71,6 +73,11 @@ TEMPLATES = [
                 'django.contrib.messages.context_processors.messages',
                 'zinnia.context_processors.version',  # Optional
             ],
+            'loaders': [
+                'app_namespace.Loader',
+                'django.template.loaders.filesystem.Loader',
+                'django.template.loaders.app_directories.Loader',
+            ]
         },
     },
 ]
