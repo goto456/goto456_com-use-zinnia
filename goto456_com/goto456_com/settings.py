@@ -41,6 +41,7 @@ INSTALLED_APPS = (
     'django_comments',
     'mptt',
     'tagging',
+    'mysite',
     'zinnia_bootstrap',
     'zinnia',
 )
@@ -62,7 +63,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            'templates',
+            'mysite/templates',
             ],
         #'APP_DIRS': True,
         'OPTIONS': {
@@ -90,8 +91,14 @@ WSGI_APPLICATION = 'goto456_com.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        #'ENGINE': 'django.db.backends.sqlite3',
+        #'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'test',
+        'USER': 'root',
+        'PASSWORD': 'wangbiwen',
+        'HOST': '',
+        'PORT': '3306',
     }
 }
 
@@ -107,7 +114,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False
 
 
 # Static files (CSS, JavaScript, Images)
